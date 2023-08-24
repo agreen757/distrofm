@@ -5,6 +5,8 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" id="typekit-font-css" href="https://use.typekit.net/tjn6tgp.css?ver=6.2.2" type="text/css" media="all">
+    <link rel="stylesheet" id="app-style-css" href="https://distronation.livenation.com/wp-content/themes/dn/assets/dist/styles/main.css?ver=1280601680801292" type="text/css" media="all">
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -24,11 +26,54 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+  
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" href="player.css">
+    <script src="player.js"></script>
+  
     <title>React App</title>
+    <style>
+      /* Make it a marquee */
+      #controls {
+          z-index: 2000;
+      }
+      .marquee {
+          margin: 0 auto;
+          white-space: nowrap;
+          overflow: hidden;
+      }
+
+      .marquee span {
+          display: inline-block;
+          padding-left: 100%;
+          animation: marquee 15s linear infinite;
+      }
+
+      /* Make it move */
+      @keyframes marquee {
+          0%   { transform: translate(0, 0); }
+          100% { transform: translate(-100%, 0); }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div id="player" style="display: none; visibility: hidden;"></div>
+    
+    <!--Player-->
+    <div class="audio-player" style="display: none;">
+        <div class="player-controls">
+            <div id="radioIcon"></div>
+            <button id="playAudio"></button>
+            <div id="seekObjContainer">
+                <div id="seekObj">
+                    <div id="percentage"></div>
+                </div>
+            </div>
+            <p><small id="currentTime">00:00</small></p>
+        </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +84,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://www.youtube.com/iframe_api"></script>
   </body>
 </html>
