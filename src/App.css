@@ -1,7 +1,14 @@
 .swiper-button-prev {
-    color: #d8cbcb53; 
+  color: #e9e2e2 !important;
 }
 
 .swiper-button-next {
-    color: #d8cbcb53; 
+  color: #e9e2e2 !important;
+}
+.aspect {
+  position: relative !important;
+  margin-top: 0px;
+}
+.css-cdo35n::before {
+  padding-bottom: 3% !important;
 }
