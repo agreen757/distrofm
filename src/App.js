@@ -49,6 +49,7 @@ function App() {
   const [swiper, setSwiper] = useState(false);
   const [genres, setGenres] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [socialData, setSocialData] = useState([])
   const [allVideos, setAllVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [playing, setPlaying] = useState(false);
@@ -78,9 +79,12 @@ function App() {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({channel:{id: chanId}})
-    }
-    //const res = await axios.put('https://xksq505s12.execute-api.us-east-1.amazonaws.com/Beta/getanalyticsdb', {channel:{id: chanId}});
+  }
 
+  fetch('https://xksq505s12.execute-api.us-east-1.amazonaws.com/Beta/getanalyticsdb', fetchreq)
+  .then(response => response.json())
+  .then(data => setSocialData(data.data))
+  .catch(error => console.log(error));
 
   }
 
