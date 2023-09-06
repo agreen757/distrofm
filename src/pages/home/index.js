@@ -24,7 +24,7 @@ import { EffectCoverflow } from 'swiper/modules';
  */
 import { Waveform } from '@uiball/loaders';
 export default function Home(props) {
-  const { videos, playMusic, setSwiper, windowSize } = props;
+  const { videos, playMusic, setSwiper, windowSize, playing, controlState } = props;
   function removeOfficial(inputStr) {
     return inputStr.replace(/(\[|\()(?=.*official).*?(\]|\))/gi, '').trim();
   }
@@ -84,7 +84,14 @@ export default function Home(props) {
                 }
                 paddingLeft={{ base: '200px', md: '0px', lg: '0px' }}
               >
-                <Box width={{ base: '500px', md: '100%', lg: '100%' }}>
+                <Box pos={'relative'} width={{ base: '500px', md: '100%', lg: '100%' }}>
+                  <Box opacity={'.5'} pos={'absolute'} top={windowSize === 'small' ? '10px':'70px'}
+                      left={windowSize === 'small' ? '60px': '150px'}>
+                    <Image 
+                      hidden={playing && !controlState ? true:false}
+                      w={{ base: '180px', md: '250px', lg: '220px' }}
+                      src={'play-button.svg'} />
+                  </Box>
                   <Image
                     w={{ base: '300px', md: '250px', lg: '520px' }}
                     h={{ base: '200px', md: '250px', lg: '350px' }}
