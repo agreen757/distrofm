@@ -49,7 +49,8 @@ function App() {
   const [swiper, setSwiper] = useState(false);
   const [genres, setGenres] = useState([]);
   const [videos, setVideos] = useState([]);
-  const [socialData, setSocialData] = useState([])
+  const [socialData, setSocialData] = useState([]);
+  const [controlState, setControlsState] = useState(null);
   const [allVideos, setAllVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [playing, setPlaying] = useState(false);
@@ -141,7 +142,7 @@ function App() {
       //update the id="controls" div to remove hidden attribute
       const controls = document.getElementById('controls');
       controls.removeAttribute('hidden');
-
+      setControlsState(controls);
 
 
     };
@@ -502,6 +503,8 @@ function App() {
                 playMusic={playMusic}
                 setSwiper={setSwiper}
                 windowSize={returnWindowSize()}
+                playing={playing}
+                controls={controlState}
               />
             }
           />
