@@ -73,7 +73,7 @@ function App() {
   const fontSizes = { base: '20px', md: '16px', lg: '20px' };
 
   const fetchSocials = async (chanId) => {
-   
+   console.log(chanId)
     let fetchreq = {
       method: 'PUT',
       headers: {
@@ -84,7 +84,7 @@ function App() {
 
   fetch('https://xksq505s12.execute-api.us-east-1.amazonaws.com/Beta/getanalyticsdb', fetchreq)
   .then(response => response.json())
-  .then(data => setSocialData(data.data))
+  .then(data => {setSocialData(data.data);console.log(data);})
   .catch(error => console.log(error));
 
   }
